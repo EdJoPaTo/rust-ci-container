@@ -1,9 +1,9 @@
-FROM docker.io/library/rust:1-slim-bullseye AS deb
+FROM docker.io/library/rust:1-slim-bookworm AS deb
 ENV CARGO_INCREMENTAL=0
 RUN cargo install --root=/usr/local/ cargo-deb cargo-hack
 
 
-FROM docker.io/library/rust:1-slim-bullseye AS final
+FROM docker.io/library/rust:1-slim-bookworm AS final
 ENV CARGO_INCREMENTAL=0
 RUN apt-get update \
     && apt-get upgrade -y \
